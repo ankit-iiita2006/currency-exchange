@@ -1,0 +1,1 @@
+insert into User (id,name, email, password) values (1,'admin','admin@crossover.com',"Password");

@@ -1,0 +1,47 @@
+@(id: Long, currencyForm: Form[CurrencyMap])
+
+@import helper._
+
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.render) } 
+
+@main {
+    
+    <h1>Edit Currency</h1>
+
+    @if(currencyForm.hasGlobalErrors) {
+    <p class="error">
+        @currencyForm.globalError.message
+    </p>
+    }
+
+
+    @form(routes.Application.update(id)) {
+        
+        <fieldset>
+            @select(
+            currencyForm("id"),
+                options(CurrencyMap.getCurrencyCode(id)),
+                '_label -> "Currency Code",
+                '_showConstraints -> false
+            )
+            @select(
+            currencyForm("id"),
+            options(CurrencyMap.getCurrencyName(id)),
+            '_label -> "Currency Name",
+            '_showConstraints -> false
+            )
+            @inputText(currencyForm("valuation"), '_label -> "Valuation")
+        </fieldset>
+        
+        <div class="actions">
+            <input type="submit" value="Save this currency" class="btn primary"> or
+            <a href="@routes.Application.list()" class="btn">Cancel</a> 
+        </div>
+        
+    }
+    
+    @form(routes.Application.delete(id), 'class -> "topRight") {
+        <input type="submit" value="Delete this currency" class="btn danger">
+    }
+    
+}

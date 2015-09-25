@@ -1,0 +1,67 @@
+*.rbc
+*.sassc
+.sass-cache
+capybara-*.html
+.rspec
+/db/*.sqlite3
+/public/system
+/coverage/
+/spec/tmp
+**.orig
+rerun.txt
+pickle-email-*.html
+.zeus.sock
+
+target/*
+project/target/*
+project/target/target/*
+bin/*
+
+
+## Environment normalisation:
+/.bundle
+/vendor/bundle
+
+# these should all be checked in to normalise the environment:
+# Gemfile.lock, .ruby-version, .ruby-gemset
+
+# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
+.rvmrc
+
+# OS generated files #
+######################
+.project
+**.directory
+*~
+*.swp
+*.swo
+**.DS_Store
+**.DS_Store?
+.idea/*
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# App normalisation #
+#####################
+*.log
+report/*
+libreoffice
+pagesource.html
+screenshot.png
+config/companies/*
+/properties.json
+/tags.json
+.elasticbeanstalk/
+/Temp
+
+# Ignore application configuration
+/config/application.yml
+/config/database.yml
+/config/backend.properties
+
+# Ignore readme and contributing
+README.md
+CONTRIBUTING.md

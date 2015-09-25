@@ -1,0 +1,44 @@
+@(baseCurrency: Form[Convertor])
+
+@import helper._
+
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.render) }
+
+@main {
+
+    <h1>Convert Currency</h1>
+
+    @if(baseCurrency.hasGlobalErrors) {
+        <p class="error">
+            @baseCurrency.globalError.message
+        </p>
+    }
+
+    @form(routes.Application.currencyConvertor()) {
+
+        <fieldset>
+            @inputText(baseCurrency("valuation"), '_label -> "Base Currency Amount")
+            @select(
+            baseCurrency("from"),
+            options(CurrencyMap.getCurrencyOptionsByCode),
+            '_label -> " Base Currency",
+            '_showConstraints -> false
+            )
+            @select(
+            baseCurrency("to"),
+            options(CurrencyMap.getCurrencyOptionsByCode),
+            '_label -> "Quote Currency",
+            '_showConstraints -> false
+            )
+        </fieldset>
+
+        <h3 id="myDiv"> </h3>
+
+        <div class="actions">
+            <input type="button" onclick="loadXMLDoc()" value="Convert Currency" class="btn primary">
+            <a href="@routes.Application.list()" class="btn primary" style="margin-left:32px"> Home </a>
+        </div>
+
+    }
+
+}

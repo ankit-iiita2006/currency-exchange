@@ -1,0 +1,6 @@
+# Messages
+
+currency.list.title={0,choice,0#No currency|1#One currency|1<{0,number,integer} currencies} found
+currency.list.title2=Exchange rate w.r.t 1.00 US Dollar (USD)
+
+

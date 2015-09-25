@@ -1,0 +1,29 @@
+@(currencyForm: Form[CurrencyMap])
+
+@import helper._
+
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.render) } 
+
+@main {
+    
+    <h1>Add a currency</h1>
+    
+    @form(routes.Application.save()) {
+        
+        <fieldset>
+
+            @inputText(currencyForm("name"), '_label -> "Currency Name")
+            @inputText(currencyForm("valuation"), '_label -> "Valuation")
+            @inputText(currencyForm("currencyCode"), '_label -> "Currency Code")
+            
+
+        </fieldset>
+        
+        <div class="actions">
+            <input type="submit" value="Create this currency" class="btn primary"> or
+            <a href="@routes.Application.list()" class="btn">Cancel</a> 
+        </div>
+        
+    }
+    
+}

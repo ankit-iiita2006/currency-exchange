@@ -1,0 +1,38 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Default path will just redirect to the currency list
+GET     /                           controllers.Application.index()
+
+# currency list (look at the default values for pagination parameters)
+GET     /currency                  controllers.Application.list(p:Int ?= 0, s ?= "name", o ?= "asc", f ?= "")
+
+# Add currency
+GET     /currency/new              controllers.Application.create()
+POST    /currency                  controllers.Application.save()
+
+# Edit existing currency
+GET     /currency/:id              controllers.Application.edit(id:Long)
+POST    /currency/:id              controllers.Application.update(id:Long)
+
+# Delete a currency
+POST    /currency/:id/delete       controllers.Application.delete(id:Long)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+GET     /currencyExchange            controllers.Application.currencyExchange()
+
+POST   /currencyConvertor            controllers.Application.currencyConvertor()
+
+POST   /currencyConvertorAjax        controllers.Application.currencyConvertorAjax()
+
+GET     /login                      controllers.Application.login()
+
+POST    /login                      controllers.Application.authenticate()
+
+GET     /isLoggedIn               controllers.Application.isLoggedIn()
+
+GET     /logout                     controllers.Application.logout()
+
